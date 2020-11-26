@@ -1,22 +1,16 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import { Routes } from './utils/routes';
+
+import Landing from './pages/Landing';
+import BrowseRentals from './pages/BrowseRentals';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p className='border border-solid border-red-700'>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+      <Route path={Routes.LandingPage} component={Landing} exact />
+      <Route path={Routes.BrowseRentals} component={BrowseRentals} />
+    </Switch>
   );
 }
 
