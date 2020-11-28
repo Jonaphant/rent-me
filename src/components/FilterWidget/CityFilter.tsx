@@ -60,7 +60,7 @@ const CityFilter = () => {
   }
 
   return (
-    <React.Fragment>
+    <div className='relative'>
       <div className='bg-white p-6 flex items-center justify-between border-b cursor-pointer' onClick={() => setShowDropDown(prev => !prev)}>
         <div className='flex'>
           <FontAwesomeIcon icon={faMapMarkerAlt} className='text-yellow-500 fa-lg mr-8' />
@@ -68,7 +68,7 @@ const CityFilter = () => {
         </div>
         <FontAwesomeIcon icon={showDropDown ? faChevronUp : faChevronDown} className='text-gray-200 fa-lg' />
       </div>
-      <div className='z-20 bg-white'>
+      <div className='z-20 bg-white absolute w-full'>
         {showDropDown && (
           cities.map(cityData => (
             <p
@@ -81,7 +81,7 @@ const CityFilter = () => {
           ))
         )}
       </div>
-    </React.Fragment>
+    </div>
   );
 }
 
