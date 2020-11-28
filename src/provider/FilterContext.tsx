@@ -1,8 +1,9 @@
+import moment from 'moment';
 import React, { useState, createContext, Dispatch, SetStateAction } from 'react'
 
 interface RentalDateProps {
-  startDate: string,
-  endDate: string,
+  startDate: moment.Moment | null,
+  endDate: moment.Moment | null,
 }
 
 interface FilterContextProps {
@@ -18,8 +19,8 @@ const defaultData = {
   isFurnished: true,
   city: 'Choose a city',
   rentalDate: {
-    startDate: '',
-    endDate: '',
+    startDate: null,
+    endDate: null,
   }
 }
 
@@ -29,8 +30,8 @@ export const FilterProvider = (props: { children: React.ReactNode; }) => {
   const [isFurnished, setIsFurnished] = useState<boolean>(true);
   const [city, setCity] = useState<string>('Choose a city');
   const [rentalDate, setRentalDate] = useState({
-    startDate: '',
-    endDate: '',
+    startDate: null,
+    endDate: null,
   });
 
   return (
