@@ -10,7 +10,7 @@ const Landing = () => {
     <React.Fragment>
       <Navbar />
       <div className='pt-12 pb-48 flex justify-center w-full bg-green-50'>
-        <div className='flex w-11/12 lg:w-11/12 xl:w-9/12'>
+        <div className='flex w-11/12 lg:w-11/12 xl:w-9/12 2xl:w-7/12'>
           <section className='flex flex-col w-5/12'>
             <div className='text-6xl mb-8'>
               <h1 className='mb-2'>Start Here,</h1>
