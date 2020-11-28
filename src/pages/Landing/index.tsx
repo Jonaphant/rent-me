@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Routes } from '../../utils/routes';
 
 import Navbar from '../../components/Navbar';
+import FilterWidget from '../../components/FilterWidget';
 
 import LandingImage from '../../images/landing.jpg';
 
@@ -17,11 +16,11 @@ const Landing = () => {
               <h1 className='mb-2'>Start Here,</h1>
               <h1>Live Anywhere</h1>
             </div>
-            <p className='text-2xl mb-12'>
+            <p className='text-2xl mb-12 leading-10'>
               RentMe is redefining apartment living with a large network of apartments at affordable prices. Renting has never been easier.
             </p>
             <div className='w-10/12'>
-              {/* Filter widget */}
+              <FilterWidget />
             </div>
           </section>
           <section className='w-7/12 flex justify-end'>
