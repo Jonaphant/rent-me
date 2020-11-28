@@ -7,7 +7,7 @@ import CityFilter from './CityFilter';
 import DatePicker from './DatePicker';
 
 const FilterWidget = () => {
-  const { setIsFurnished } = useContext(FilterContext);
+  const { isFurnished, setIsFurnished } = useContext(FilterContext);
 
   const onFurnishedClick = (furnished:boolean) => {
     if (setIsFurnished) {
@@ -15,18 +15,22 @@ const FilterWidget = () => {
     }
   }
 
+  const furnishedButtonStyle = `uppercase flex-1 text-center cursor-pointer py-4`
+  const furnishedStyle = `rounded-tl-lg ${furnishedButtonStyle} ${isFurnished ? 'text-white bg-gray-700' : 'text-gray-500 bg-gray-100'}`
+  const unfurnishedStyle = `rounded-tr-lg ${furnishedButtonStyle} ${isFurnished ? 'text-gray-500 bg-gray-100' : 'text-white bg-gray-700'}`
+
   return (
     <React.Fragment>
       <div className='flex flex-col w-full border mb-8 rounded-lg border shadow'>
         <div className='flex w-full font-bold'>
           <div
-            className='uppercase flex-1 text-center bg-gray-700 text-white py-4 rounded-tl-lg cursor-pointer'
+            className={furnishedStyle}
             onClick={() => onFurnishedClick(true)}
           >  
             Furnished
           </div>
           <div
-            className='uppercase flex-1 text-center bg-gray-100 py-4 rounded-tr-lg text-gray-500 cursor-pointer'
+            className={unfurnishedStyle}
             onClick={() => onFurnishedClick(false)}
           >
             Unfurnished
