@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import { Routes } from '../../utils/routes';
+
+import CityFilter from './CityFilter';
+import DatePicker from './DatePicker';
 
 const FilterWidget = () => {
   return (
@@ -12,10 +14,10 @@ const FilterWidget = () => {
           <div className='uppercase flex-1 text-center bg-gray-100 py-4 rounded-tr-lg text-gray-500'>Unfurnished</div>
         </div>
         <div>
-          {/* Choose a city dropdown */}
+          <CityFilter />
         </div>
         <div>
-          {/* Move-in Move-out date dropdowns */}
+          <DatePicker />
         </div>
       </div>
       <Link to={Routes.BrowseRentals}>
