@@ -47,7 +47,7 @@ const FilterWidget = () => {
           className={`
             py-6 w-full bg-green-900 rounded-full font-bold
             text-xl focus:outline-none
-            ${isFormFilled ? 'cursor-pointer text-white' : 'text-gray-400'}
+            ${isFormFilled ? 'cursor-pointer text-white' : 'cursor-default text-gray-400'}
           `}
         >
           Search
