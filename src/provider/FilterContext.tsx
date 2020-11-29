@@ -1,5 +1,5 @@
 import moment from 'moment';
-import React, { useState, createContext, Dispatch, SetStateAction } from 'react'
+import React, { useState, createContext, Dispatch, SetStateAction } from 'react';
 
 interface RentalDateProps {
   startDate: moment.Moment | null,
