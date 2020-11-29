@@ -12,7 +12,7 @@ import GoogleMapReact from 'google-map-react';
 const BrowseRentals = () => {
   const { city } = useContext(FilterContext);
   const [images, setImages] = useState([]);
-  const defaultProps = {
+  const defaultMapProps = {
     center: {
       lat: 59.95,
       lng: 30.33
@@ -62,15 +62,15 @@ const BrowseRentals = () => {
               ))}
             </div>
           </section>
-          <section className='w-5/12 ml-12 relative right-30'>
+          <section className='w-5/12 ml-12'>
             <div className='mb-12'>
               <button>Maps</button>
             </div>
             <div className='h-screen w-full'>
               <GoogleMapReact
                 bootstrapURLKeys={{ key: GOOGLE_MAPS_KEY }}
-                defaultCenter={defaultProps.center}
-                defaultZoom={defaultProps.zoom}
+                defaultCenter={defaultMapProps.center}
+                defaultZoom={defaultMapProps.zoom}
               >
               </GoogleMapReact>
             </div>
