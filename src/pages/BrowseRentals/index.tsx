@@ -55,11 +55,11 @@ const BrowseRentals = () => {
                 <ListingCard
                   image={image.urls.small}
                   desc={image.alt_description}
-                  address='Dummy address'
-                  cost='Dummy cost'
-                  beds='2'
-                  bath='3'
-                  availableAt='random Date'
+                  address='1234 Parkway Lane'
+                  cost='$100/night'
+                  beds='3'
+                  bath='2'
+                  availableAt='May 12'
                 />
               ))}
             </div>

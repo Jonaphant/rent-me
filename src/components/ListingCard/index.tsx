@@ -17,8 +17,8 @@ const ListingCard = ({image, desc, address, cost, beds, bath, availableAt}: List
         <img src={image} alt={desc} className='w-full h-full'/>
       </div>
       <h1 className='font-bold text-xl'>{address}</h1>
-      <p>{cost} {beds} beds,{bath} bath</p>
-      <p className='font-bold'>Available {availableAt}</p>
+      <p>{cost} {beds} beds, {bath} bath</p>
+      <p className='font-semibold text-lg'>Available {availableAt}</p>
     </div>
   );
 }
