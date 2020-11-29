@@ -7,8 +7,8 @@ interface RentalDateProps {
 }
 
 interface FilterContextProps {
-  isFurnished: boolean,
-  setIsFurnished?: Dispatch<SetStateAction<boolean>>,
+  furnished: string,
+  setFurnished?: Dispatch<SetStateAction<string>>,
   city: string,
   setCity?: Dispatch<SetStateAction<string>>,
   rentalDate: RentalDateProps,
@@ -16,7 +16,7 @@ interface FilterContextProps {
 }
 
 const defaultData = {
-  isFurnished: true,
+  furnished: 'Furnished',
   city: 'Choose a city',
   rentalDate: {
     startDate: null,
@@ -27,7 +27,7 @@ const defaultData = {
 export const FilterContext = createContext<FilterContextProps>(defaultData);
 
 export const FilterProvider = (props: { children: React.ReactNode; }) => {
-  const [isFurnished, setIsFurnished] = useState<boolean>(true);
+  const [furnished, setFurnished] = useState('Furnished');
   const [city, setCity] = useState<string>('Choose a city');
   const [rentalDate, setRentalDate] = useState({
     startDate: null,
@@ -35,7 +35,7 @@ export const FilterProvider = (props: { children: React.ReactNode; }) => {
   });
 
   return (
-    <FilterContext.Provider value={{isFurnished, setIsFurnished, city, setCity, rentalDate, setRentalDate}}>
+    <FilterContext.Provider value={{furnished, setFurnished, city, setCity, rentalDate, setRentalDate}}>
         {props.children}
     </FilterContext.Provider>
   )

@@ -13,7 +13,7 @@ import { FilterContext } from '../../provider/FilterContext';
 type focusedInputProps = 'startDate' | 'endDate' | null;
 
 const DatePicker = () => {
-  const { rentalDate, setRentalDate, isFurnished, city } = useContext(FilterContext);
+  const { rentalDate, setRentalDate, furnished, city } = useContext(FilterContext);
   const [focusedInput, setFocusedInput] = useState<focusedInputProps>(null);
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const hasChosenCity = city !== 'Choose a city';
@@ -21,7 +21,7 @@ const DatePicker = () => {
   return (
     <div className='p-6 rounded-b-lg flex items-center bg-white'>
       <FontAwesomeIcon icon={faCalendar} className='text-yellow-500 fa-lg mr-7' />
-      {isFurnished ? (
+      {furnished === 'Furnished' ? (
         <DateRangePicker
           startDate={rentalDate.startDate}
           startDateId='startIdUnique'

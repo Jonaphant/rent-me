@@ -10,7 +10,9 @@ import DropDown from '../DropDown';
 import DatePicker from './DatePicker';
 
 const FilterWidget = () => {
-  const { isFurnished, setIsFurnished, city, setCity, rentalDate } = useContext(FilterContext);
+  const { furnished, setFurnished, city, setCity, rentalDate } = useContext(FilterContext);
+  const isFurnished = furnished === 'Furnished';
+  
   const hasChosenDates = ((isFurnished && rentalDate.startDate !== null && rentalDate.endDate !== null) ||
     (!isFurnished && rentalDate.startDate !== null));
   const isFormFilled = city !== 'Choose a city' && hasChosenDates;
@@ -27,13 +29,13 @@ const FilterWidget = () => {
         <div className='flex w-full font-bold'>
           <div
             className={furnishedStyle}
-            onClick={() => setIsFurnished(true)}
+            onClick={() => setFurnished('Furnished')}
           >  
             Furnished
           </div>
           <div
             className={unfurnishedStyle}
-            onClick={() => setIsFurnished(false)}
+            onClick={() => setFurnished('UnFurnished')}
           >
             Unfurnished
           </div>
