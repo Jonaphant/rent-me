@@ -9,6 +9,8 @@ import ListingCard from '../../components/ListingCard';
 
 import GoogleMapReact from 'google-map-react';
 
+import './index.css';
+
 const BrowseRentals = () => {
   const { city } = useContext(FilterContext);
   const [images, setImages] = useState([]);
@@ -63,8 +65,18 @@ const BrowseRentals = () => {
             </div>
           </section>
           <section className='w-5/12 ml-12'>
-            <div className='mb-12'>
-              <button>Maps</button>
+            <div className="flex items-center justify-end w-full mb-10">
+              <label 
+                htmlFor="toogleA"
+                className="flex items-center cursor-pointer"
+              >
+                <div className="mr-3 text-gray-700 font-bold uppercase">Map</div>
+                <div className="relative">
+                  <input id="toogleA" type="checkbox" className="hidden" defaultChecked />
+                  <div className="toggle__line w-16 h-8 bg-gray-200 rounded-full shadow-inner"></div>
+                  <div className="toggle__dot absolute w-6 h-6 bg-white border rounded-full shadow inset-y-0 left-0"></div>
+                </div>
+              </label>
             </div>
             <div className='h-screen w-full'>
               <GoogleMapReact
