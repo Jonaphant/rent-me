@@ -46,6 +46,7 @@ const FilterWidget = () => {
             buttonState={city}
             setButtonState={setCity}
             options={CITIES}
+            className='p-6'
           />
         </div>
         <div>

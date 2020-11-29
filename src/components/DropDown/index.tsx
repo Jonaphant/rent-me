@@ -11,16 +11,18 @@ interface optionsProps {
 
 interface DropDownProps {
   buttonIcon: IconProp,
-  buttonState: string,
-  setButtonState: Dispatch<SetStateAction<string>>,
+  buttonState: any,
+  setButtonState: Dispatch<SetStateAction<any>>,
   options: Array<optionsProps>,
+  className?: string,
 }
 
 const DropDown = ({
   buttonIcon,
   buttonState,
   setButtonState,
-  options }: DropDownProps) => {
+  options,
+  className='' }: DropDownProps) => {
 
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
   
@@ -31,15 +33,18 @@ const DropDown = ({
 
   return (
     <div className='relative'>
-      <div className='bg-white p-6 flex items-center justify-between cursor-pointer' onClick={() => setShowDropDown(prev => !prev)}>
-        <div className='flex'>
+      <div
+        className={`bg-white flex items-center justify-between cursor-pointer ${className}`}
+        onClick={() => setShowDropDown(prev => !prev)}
+      >
+        <div className='flex items-center mr-4'>
           <FontAwesomeIcon icon={buttonIcon} className='text-yellow-500 fa-lg mr-8' />
           <p className='font-semibold text-lg'>{buttonState}</p>
         </div>
         <FontAwesomeIcon icon={showDropDown ? faChevronUp : faChevronDown} className='text-gray-200 fa-lg' />
       </div>
       {showDropDown && (
-        <div className='z-20 bg-white absolute w-full border-t'>
+        <div className='z-20 bg-white absolute w-full border'>
           {options.map(option => (
             <p
               className='pl-4 py-2 font-semibold cursor-pointer hover:text-yellow-500'
