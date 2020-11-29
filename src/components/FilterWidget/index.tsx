@@ -38,7 +38,7 @@ const FilterWidget = () => {
             Unfurnished
           </div>
         </div>
-        <div>
+        <div className='border-b'>
           <DropDown
             buttonIcon={faMapMarkerAlt}
             buttonState={city}

@@ -31,16 +31,16 @@ const DropDown = ({
 
   return (
     <div className='relative'>
-      <div className='bg-white p-6 flex items-center justify-between border-b cursor-pointer' onClick={() => setShowDropDown(prev => !prev)}>
+      <div className='bg-white p-6 flex items-center justify-between cursor-pointer' onClick={() => setShowDropDown(prev => !prev)}>
         <div className='flex'>
           <FontAwesomeIcon icon={buttonIcon} className='text-yellow-500 fa-lg mr-8' />
           <p className='font-semibold text-lg'>{buttonState}</p>
         </div>
         <FontAwesomeIcon icon={showDropDown ? faChevronUp : faChevronDown} className='text-gray-200 fa-lg' />
       </div>
-      <div className='z-20 bg-white absolute w-full'>
-        {showDropDown && (
-          options.map(option => (
+      {showDropDown && (
+        <div className='z-20 bg-white absolute w-full border-t'>
+          {options.map(option => (
             <p
               className='pl-4 py-2 font-semibold cursor-pointer hover:text-yellow-500'
               onClick={() => onOptionClick(option.value)}
@@ -48,9 +48,9 @@ const DropDown = ({
             >
               {option.value}
             </p>
-          ))
-        )}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
