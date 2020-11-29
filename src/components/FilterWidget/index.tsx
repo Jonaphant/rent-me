@@ -3,11 +3,16 @@ import { Link } from 'react-router-dom';
 import { Routes } from '../../utils/routes';
 import { FilterContext } from '../../provider/FilterContext';
 
-import CityFilter from './CityFilter';
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { CITIES } from '../../utils/constants'
+
+import DropDown from '../DropDown';
 import DatePicker from './DatePicker';
 
 const FilterWidget = () => {
-  const { isFurnished, setIsFurnished, city, rentalDate } = useContext(FilterContext);
+  const { furnished, setFurnished, city, setCity, rentalDate } = useContext(FilterContext);
+  const isFurnished = furnished === 'Furnished';
+  
   const hasChosenDates = ((isFurnished && rentalDate.startDate !== null && rentalDate.endDate !== null) ||
     (!isFurnished && rentalDate.startDate !== null));
   const isFormFilled = city !== 'Choose a city' && hasChosenDates;
@@ -24,19 +29,25 @@ const FilterWidget = () => {
         <div className='flex w-full font-bold'>
           <div
             className={furnishedStyle}
-            onClick={() => setIsFurnished(true)}
+            onClick={() => setFurnished('Furnished')}
           >  
             Furnished
           </div>
           <div
             className={unfurnishedStyle}
-            onClick={() => setIsFurnished(false)}
+            onClick={() => setFurnished('UnFurnished')}
           >
             Unfurnished
           </div>
         </div>
-        <div>
-          <CityFilter />
+        <div className='border-b'>
+          <DropDown
+            buttonIcon={faMapMarkerAlt}
+            buttonState={city}
+            setButtonState={setCity}
+            options={CITIES}
+            className='p-6'
+          />
         </div>
         <div>
           <DatePicker />
@@ -47,7 +58,7 @@ const FilterWidget = () => {
           className={`
             py-6 w-full bg-green-900 rounded-full font-bold
             text-xl focus:outline-none
-            ${isFormFilled ? 'cursor-pointer text-white' : 'text-gray-400'}
+            ${isFormFilled ? 'cursor-pointer text-white' : 'cursor-default text-gray-400'}
           `}
         >
           Search
