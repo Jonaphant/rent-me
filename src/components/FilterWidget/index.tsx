@@ -3,11 +3,14 @@ import { Link } from 'react-router-dom';
 import { Routes } from '../../utils/routes';
 import { FilterContext } from '../../provider/FilterContext';
 
-import CityFilter from './CityFilter';
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { CITIES } from '../../utils/constants'
+
+import DropDown from '../DropDown';
 import DatePicker from './DatePicker';
 
 const FilterWidget = () => {
-  const { isFurnished, setIsFurnished, city, rentalDate } = useContext(FilterContext);
+  const { isFurnished, setIsFurnished, city, setCity, rentalDate } = useContext(FilterContext);
   const hasChosenDates = ((isFurnished && rentalDate.startDate !== null && rentalDate.endDate !== null) ||
     (!isFurnished && rentalDate.startDate !== null));
   const isFormFilled = city !== 'Choose a city' && hasChosenDates;
@@ -36,7 +39,12 @@ const FilterWidget = () => {
           </div>
         </div>
         <div>
-          <CityFilter />
+          <DropDown
+            buttonIcon={faMapMarkerAlt}
+            buttonState={city}
+            setButtonState={setCity}
+            options={CITIES}
+          />
         </div>
         <div>
           <DatePicker />
